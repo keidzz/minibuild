@@ -6,7 +6,7 @@ from methods import print_error
 
 
 libname = "minibuild"
-projectdir = "demo"
+projectdir = "project"
 
 localEnv = Environment(tools=["default"], PLATFORM="")
 

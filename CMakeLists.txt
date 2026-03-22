@@ -5,8 +5,8 @@ cmake_minimum_required(VERSION 3.17)
 if(CMAKE_C_COMPILER)
 endif()
 
-set(LIBNAME "minibuild" CACHE STRING "The name of the library")
-set(GODOT_PROJECT_DIR "demo" CACHE STRING "The directory of a Godot project folder")
+set(LIBNAME "minibuild")
+set(GODOT_PROJECT_DIR "project" CACHE STRING "The directory of a Godot project folder")
 
 # Make sure all the dependencies are satisfied
 find_package(Python3 3.4 REQUIRED)
