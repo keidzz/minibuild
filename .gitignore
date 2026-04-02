@@ -2,6 +2,8 @@
 *.gen.*
 .godot/
 
+
+
 # Ignore library files but not the gdextension file
 project/bin/*
 !project/bin/android
@@ -18,6 +20,9 @@ project/bin/windows/*
 !project/bin/windows/.gitkeep
 !project/bin/*.gdextension
 .sconsign*.dblite
+
+bin/windows/*
+
 
 # Ignore custom.py
 custom.py
@@ -48,6 +53,7 @@ compile_commands.json
 *.includes
 *.idb
 *.exp
+*.exe
 
 # Other stuff
 *.log

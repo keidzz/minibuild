@@ -1,8 +1,55 @@
-[gd_scene load_steps=2 format=3 uid="uid://bgdgcpfya0hq5"]
+[gd_scene format=3 uid="uid://bgdgcpfya0hq5"]
 
-[ext_resource type="Script" uid="uid://bpn816nckit0i" path="res://example.gd" id="1_ig7tw"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ig7tw"]
+albedo_color = Color(0, 0, 0, 1)
 
-[node name="Node" type="Node"]
+[sub_resource type="Curve3D" id="Curve3D_7dm0k"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 1.3044388, 0, 0.045237303, 0, 0, 0, 31.985, 0, 0, 39.819534, 4.7683716e-07, 0.9920597, 0, 0, 0, 0, 0, 0, 57.112114, 0, 49.887558),
+"tilts": PackedFloat32Array(0, 0, 0)
+}
+point_count = 3
 
-[node name="Node3D" type="Node3D" parent="."]
-script = ExtResource("1_ig7tw")
+[sub_resource type="Curve3D" id="Curve3D_0xm2m"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0.477, 0.022161627, 27.075678, 0, 0, 0, 0, 0, 0, 26.371338, 0, 34.717552, 0, 0, 0, 0, 0, 0, 45.537724, 0, 53.602993),
+"tilts": PackedFloat32Array(0, 0, 0)
+}
+point_count = 3
+
+[sub_resource type="Curve3D" id="Curve3D_h2yge"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -2.804, 0.117, 78.64035, 0, 0, 0, 0, 0, 0, 24.120638, 0.21999952, 85.15633, 0, 0, 0, 0, 0, 0, 47.128105, 0, 67.521255),
+"tilts": PackedFloat32Array(0, 0, 0)
+}
+point_count = 3
+
+[node name="Node" type="Node" unique_id=137373245]
+
+[node name="RoadManager" type="Node3D" parent="." unique_id=1593151307]
+
+[node name="RoadNode4" type="RoadNode" parent="RoadManager" unique_id=1315286664]
+width = 8.0
+road_material = SubResource("StandardMaterial3D_ig7tw")
+show_debug = true
+curve = SubResource("Curve3D_7dm0k")
+
+[node name="RoadNode3" type="RoadNode" parent="RoadManager" unique_id=152703930]
+width = 8.0
+road_material = SubResource("StandardMaterial3D_ig7tw")
+show_debug = true
+transform = Transform3D(1, 0, 0, 0, 0.9999995, -0.00095993094, 0, 0.00095993094, 0.9999995, 0, 0, 0)
+curve = SubResource("Curve3D_0xm2m")
+
+[node name="RoadNode2" type="RoadNode" parent="RoadManager" unique_id=267433293]
+width = 8.0
+road_material = SubResource("StandardMaterial3D_ig7tw")
+show_debug = true
+curve = SubResource("Curve3D_h2yge")
+
+[node name="IntersectionNode" type="IntersectionNode" parent="RoadManager" unique_id=192486217]
+paths = Array[NodePath]([NodePath("../RoadNode2"), NodePath("../RoadNode3"), NodePath("../RoadNode4")])
+point_path = PackedInt32Array(3, 3, 3)
+curves = PackedFloat32Array(0, 0, 0)
+show_debug = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.105519, 1.6828747, 10.259053)
